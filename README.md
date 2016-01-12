@@ -1,15 +1,15 @@
-# dbc-node-recommendations
+# dbc-node-recommendation-meta-client
 
-[![David](https://img.shields.io/david/DBCDK/dbc-node-recommendations.svg?style=flat-square)](https://david-dm.org/DBCDK/dbc-node-recommendations#info=dependencies)
-[![David](https://img.shields.io/david/dev/DBCDK/dbc-node-recommendations.svg?style=flat-square)](https://david-dm.org/DBCDK/dbc-node-recommendations#info=devDependencies)
+[![David](https://img.shields.io/david/DBCDK/dbc-node-recommendations.svg?style=flat-square)](https://david-dm.org/DBCDK/dbc-node-recommendation-meta-client#info=dependencies)
+[![David](https://img.shields.io/david/dev/DBCDK/dbc-node-recommendations.svg?style=flat-square)](https://david-dm.org/DBCDK/dbc-node-recommendation-meta-client#info=devDependencies)
 
-Client for the DBC Recommendation service
+Client for the DBC Recommendation Meta service
 
 The service returns a list of recommendations for a given profile (a list of manifestations)
 
 ## Example
 ```
-import Recommendation from 'dbc-node-recommendation'
+import Recommendation from 'dbc-node-recommendation-meta-client'
 
 // Setup service 
 const endpoint = 'http://url.to.service/';

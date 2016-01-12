@@ -1,7 +1,7 @@
 {
-  "name": "dbc-node-recommendations",
+  "name": "dbc-node-recommendation-meta-client",
   "version": "5.0.1",
-  "description": "Client for the DBC Recommendation service",
+  "description": "Client for the DBC Recommendation Meta service",
   "main": "dist/Recommendation.client.js",
   "scripts": {
     "lint": "eslint ./src",
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/DBCDK/dbc-node-recommendations#develop"
+    "url": "https://github.com/DBCDK/dbc-node-recommendation-meta-client#develop"
   },
   "author": "dbcdk",
   "license": "GPL-3.0",
