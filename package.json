@@ -1,6 +1,6 @@
 {
   "name": "dbc-node-recommendation-meta-client",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "Client for the DBC Recommendation Meta service",
   "main": "dist/Recommendation.client.js",
   "scripts": {
