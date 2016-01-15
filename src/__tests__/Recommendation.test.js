@@ -14,25 +14,13 @@ describe('Test method getRecommendations', () => {
     expect(recommendations.getRecommendations).to.be.method; // eslint-disable-line no-unused-expressions
   });
 
-
-  it('catch wrong parameters - likes is not an array', (done) => {
+  it('catch wrong parameters - filter is not an array', (done) => {
     let endpoint = 'dummy_endpoint';
     let client = Recommendations({endpoint});
-    const params = {likes: {}, dislikes: []};
+    const params = {filter: {}};
     client.getRecommendations(params)
       .catch((response) => {
-        expect(response.statusMessage).to.equal('Parameters \'like\' and \'dislike\' should be arrays. I.e. { like: [], dislike: [] }');
-        done();
-      });
-  });
-
-  it('catch wrong parameters - dislikes is not an array', (done) => {
-    let endpoint = 'dummy_endpoint';
-    let client = Recommendations({endpoint});
-    const params = {likes: [], dislikes: {}};
-    client.getRecommendations(params)
-      .catch((response) => {
-        expect(response.statusMessage).to.equal('Parameters \'like\' and \'dislike\' should be arrays. I.e. { like: [], dislike: [] }');
+        expect(response.statusMessage).to.equal('filter should be an array. I.e. {filer: []}');
         done();
       });
   });
@@ -43,7 +31,7 @@ describe('Test method getRecommendations', () => {
     const params = 'this should be an object';
     client.getRecommendations(params)
       .catch((response) => {
-        expect(response.statusMessage).to.equal('Parameters should be an objet that contains both a like and a dislike parameter. I.e. { like: [], dislike: [] }');
+        expect(response.statusMessage).to.equal('Parameters should be an objet');
         done();
       });
   });

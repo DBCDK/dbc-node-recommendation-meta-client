@@ -22,15 +22,15 @@ var _lodash = require('lodash');
  * @returns {Promise}
  */
 function getRecommendations(endpoint, params) {
-  if (!(0, _lodash.isPlainObject)(params) || (0, _lodash.isUndefined)(params.likes) || (0, _lodash.isUndefined)(params.dislikes)) {
-    return Promise.reject({ statusMessage: 'Parameters should be an objet that contains both a like and a dislike parameter. I.e. { like: [], dislike: [] }' });
+  if (!(0, _lodash.isPlainObject)(params)) {
+    return Promise.reject({ statusMessage: 'Parameters should be an objet' });
   }
 
-  if (!(0, _lodash.isArray)(params.likes) || !(0, _lodash.isArray)(params.dislikes)) {
-    return Promise.reject({ statusMessage: 'Parameters \'like\' and \'dislike\' should be arrays. I.e. { like: [], dislike: [] }' });
+  if (!(0, _lodash.isArray)(params.filter)) {
+    return Promise.reject({ statusMessage: 'filter should be an array. I.e. {filer: []}' });
   }
 
-  var parameters = JSON.stringify({ like: params.likes, dislike: params.dislikes, filters: params.filters || [], maxresults: 20 });
+  var parameters = JSON.stringify({ filter: params.filter, profile: params.profile || [], maxresults: 20 });
 
   return new Promise(function (resolve, reject) {
     _request2['default'].post({
