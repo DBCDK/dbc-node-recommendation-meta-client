@@ -12,15 +12,11 @@ import {curry, isPlainObject, isUndefined, isArray} from 'lodash';
  * @returns {Promise}
  */
 function getRecommendations(endpoint, params) {
-  if (!isPlainObject(params) || isUndefined(params.likes) || isUndefined(params.dislikes)) {
-    return Promise.reject({statusMessage: 'Parameters should be an objet that contains both a like and a dislike parameter. I.e. { like: [], dislike: [] }'});
+  if (!isPlainObject(params)) {
+    return Promise.reject({statusMessage: 'Parameters should be an objet'});
   }
 
-  if (!isArray(params.likes) || !isArray(params.dislikes)) {
-    return Promise.reject({statusMessage: 'Parameters \'like\' and \'dislike\' should be arrays. I.e. { like: [], dislike: [] }'});
-  }
-
-  let parameters = JSON.stringify({like: params.likes, dislike: params.dislikes, filters: params.filters || [], maxresults: 20});
+  let parameters = JSON.stringify({filter: params.filter, profile: params.profile || [], maxresults: 20});
 
   return new Promise((resolve, reject) => {
     request.post({
