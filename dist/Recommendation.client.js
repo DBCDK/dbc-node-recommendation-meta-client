@@ -26,11 +26,11 @@ function getRecommendations(endpoint, params) {
     return Promise.reject({ statusMessage: 'Parameters should be an objet' });
   }
 
-  if (!(0, _lodash.isArray)(params.filter)) {
-    return Promise.reject({ statusMessage: 'filter should be an array. I.e. {filer: []}' });
+  if (!(0, _lodash.isArray)(params.filters)) {
+    return Promise.reject({ statusMessage: 'filters should be an array. I.e. {filer: []}' });
   }
 
-  var parameters = JSON.stringify({ filter: params.filter, profile: params.profile || [], maxresults: 20 });
+  var parameters = JSON.stringify({ filters: params.filters, profile: params.profile || [], maxresults: 20 });
 
   return new Promise(function (resolve, reject) {
     _request2['default'].post({
@@ -43,6 +43,7 @@ function getRecommendations(endpoint, params) {
       if (response.statusCode !== 200) {
         return reject(response);
       }
+
       return resolve(JSON.parse(response.body));
     });
   });
