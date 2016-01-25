@@ -17,10 +17,10 @@ describe('Test method getRecommendations', () => {
   it('catch wrong parameters - filter is not an array', (done) => {
     let endpoint = 'dummy_endpoint';
     let client = Recommendations({endpoint});
-    const params = {filter: {}};
+    const params = {filters: {}};
     client.getRecommendations(params)
       .catch((response) => {
-        expect(response.statusMessage).to.equal('filter should be an array. I.e. {filer: []}');
+        expect(response.statusMessage).to.equal('filters should be an array. I.e. {filer: []}');
         done();
       });
   });
