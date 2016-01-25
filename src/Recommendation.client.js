@@ -16,11 +16,11 @@ function getRecommendations(endpoint, params) {
     return Promise.reject({statusMessage: 'Parameters should be an objet'});
   }
 
-  if (!isArray(params.filters)) {
-    return Promise.reject({statusMessage: 'filters should be an array. I.e. {filer: []}'});
+  if (!isArray(params.filter)) {
+    return Promise.reject({statusMessage: 'filter should be an array. I.e. {filer: []}'});
   }
 
-  const parameters = JSON.stringify({filters: params.filters, profile: params.profile || [], maxresults: 20});
+  const parameters = JSON.stringify({filter: params.filter, profile: params.profile || [], maxresults: 20});
 
   return new Promise((resolve, reject) => {
     request.post({
